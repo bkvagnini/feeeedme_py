@@ -1,60 +1,57 @@
 ## Program Name: meal_idea.py
 ## Author: Brian K. Vagnini
-## Started 10/18/18
+## Started 10/18/18 Revised 12/16/18
 ##
 ## Description:
-## This program helps me to select from five JSON files, each
+## This program helps me to select from three to five tuples (phase 1) (five JSONt files - phase 2), each
 ## containing a component of a full meal.
 ## This is to assist me when I get stuck for meal ideas.
 
-import json
-from pprint import pprint
+import random
 
-#load the json file from user input
-print (""" Choose a number from the following:
-1 = main_dish
-2 = bread
-3 = sauce
-4 = starch
-5 = vegetable""")
+main = ("Steak","Cube Steak","Beef Tips","Hamburger","Beef Pot Roast","Meat Loaf",
+        "Pork Chop (baked)","Pork Chop (Fried)","Ham Slice","Bacon","Pork Roast",
+        "Italian Sausage","Smoked Sausage",
+        "Chicken Tenders/Nuggets","Whole Roasted Chicken","Baked Chicken (Thighs, Wings, Legs)",
+	"Air-Fried Chicken (Thighs, Wings, Legs)","Fried Chicken","Cornish Game Hens",
+	"Chicken-n-Waffles","Scrambled Eggs","Fried Eggs","Chicken Quesadillas",
+        "Baked Fish","Grilled/Pan Fried Fish","Fried Catfish","Fried Shrimp",
+	"Boiled Shrimp","Grilled Shrimp","Crab","Lobster Tail","Tuna","Salmon Croquets",
+	"Fish Tacos",
+        "PB-n-J","Open Faced Tomatoe, Bacon, and Mushroom","Open Faced Manwiches",
+	"Grilled Cheese/Tomato Soup","BLT","Pineapple & Cheese Sandwich","Peanut Butter & Banana Sandwich",
+	"BBQ Sandwich",
+        "Homemade Hamburger Helper (HHH)","Cheesy Rotele Chicken & Rice (CRx2)",
+        "Breakfast","Lasagna","Chili Cheese Dogs","Corn Dogs")
 
-##1 = "main_dish.json"
-##2 = "bread.json"
-##3 = "sauce.json"
-##4 = "starch.json"
-##5 = "vegetable.json"
+starch = ("Baked Potato","Tator Tots","French Fries","Sweet Potato Fries","Mashed Potatos",
+	"White Rice","Yellow Rice",
+        "Egg Noodles","Ramen Noodles","Spaghetti Noodles","Macaroni","Bow Ties",
+        "Spirals","Shells","Mac-n-Cheese",
+        "Cheese Grits","Grits")
 
-json_file = input()
+vegetable = ("Green Beans","Lima Beans","Navy Beans","Pinto Beans","Black Beans",
+          "Shelly Beans","Green Sweet Peas","Black Eyed Peas",
+          "Corn","Corn on the Cob","Creamed Corn",
+          "Yellow Squash/Onions","Fried Breaded Squash","Squash/Zuccini/Mushrooms",
+          "Tomato Slices","Fried Green Tomatoes","Tomatoes and Okra",
+          "Raw Cabbage","Boiled Cabbage","Steamed Cabbage",
+          "Fried Okra","Mushrooms","Salad","Eggplant Fritters","Carrots",
+          "Cauliflower (Garlic Roasted)","Onions/Peppers","Broccoli")
 
-print ("You selected " + json_file)
 
-f = "0"
-if json_file == "1":
-    f = "main_dish.json"
-    print ("You selected " + f)
-elif json_file == "2":
-    f = "bread.json"
-    print ("You selected " + f)
-elif json_file == "3":
-    f = "sauce.json"
-    print ("You selected " + f)
-elif json_file == "4":
-    f = "starch.json"
-    print ("You selected " + f)
-elif json_file == "5":
-    f = "vegetable.json"
-    print ("You selected " + f)
-else:
-    print ("PLease choose a number between 1 and 5 or Ctrl + C to exit")
+while True:
+    main_dish = random.choice(main)
+    starch_side = random.choice(starch)
+    veggie_side = random.choice(vegetable)
 
-#below portion currently doesn't work properly    
-#with open (f) as file:
-data = json.load(f)
-print (data)
-    
-# select random value from the array
-random_value = random(data) in data.length
-print (random_value)
-#meal_idea = data["beef"][random_value]["id"]
+    print ("\n\n\tHow about {} with {} and {}\n\n".format(main_dish, starch_side,veggie_side))
+    try_again = input("Try again? Enter for try again, n to quit: ")
+    if try_again.lower() == "n":
+        break
+    input ("Press Enter to try another suggestion.") 
+           
 
-#pprint (meal_idea)
+
+
+
