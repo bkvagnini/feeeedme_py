@@ -8,7 +8,7 @@
 ## This is to assist me when I get stuck for meal ideas.
 
 import random
-from tkinter import Tk, Label, Button, W #(used with .grid) #LEFT, #RIGHT(used with .pack)
+from tkinter import Tk, Label, Button, W #(used with .grid) #LEFT, #RIGHT(used with .pack) StringVar,
 # The tkinter allows me to run this as a GUI
 # At this time, the output is still going to the Python Console window- still pretty cool though
 # Parts of this came from https://python-textbok.readthedocs.io/en/1.0/Introduction_to_GUI_Programming.html
@@ -27,9 +27,9 @@ class MyFirstGUI:
         #self.greet_button.pack(side=LEFT)# puts the button Far Left
         self.greet_button.grid(row=1)
 
-        self.close_button = Button(master, text = "Quit", command=master.quit)
-        #self.close_button.pack(side=RIGHT) # puts the button Far Right
-        self.close_button.grid(row=1, column=1)
+        #self.close_button = Button(master, text = "Quit", command=master.quit)
+        ##self.close_button.pack(side=RIGHT) # puts the button Far Right
+        #self.close_button.grid(row=1, column=1)
 
     def greet(self):
         main = ("Steak","Cube Steak","Beef Tips","Hamburger","Beef Pot Roast","Meat Loaf",
@@ -67,8 +67,14 @@ class MyFirstGUI:
         main_dish = random.choice(main)
         starch_side = random.choice(starch)
         veggie_side = random.choice(vegetable)
+        #label = Label(root,text="")
+        label = Label(root,text="\n\nHow about {} with {} and {}                      \n\n".format(main_dish, starch_side,veggie_side))
 
-        print ("\n\n\tHow about {} with {} and {}\n\n".format(main_dish, starch_side,veggie_side))
+        #food_var = StringVar("\n\n\tHow about {} with {} and {}\n\n".format(main_dish, starch_side,veggie_side))
+        #label = Label(root,var.set(food_var))
+        label.grid(row=2, sticky = W)
+        
+        #print ("\n\n\tHow about {} with {} and {}\n\n".format(main_dish, starch_side,veggie_side))
         #try_again = input("Try again? Enter for try again, n to quit: ")
         #if try_again.lower() == "n":
             #break
@@ -76,6 +82,8 @@ class MyFirstGUI:
 
 
 root = Tk()
+root.geometry("500x200")
+root.resizable(0,0)
 my_gui = MyFirstGUI(root) #must match the class name
 root.mainloop()
 
